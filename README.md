@@ -1,2 +1,3 @@
-# mr-grammar-mining
-This repository will be used to store the progress of the project for the course of text mining
+# Mineria de Gramaticas para la generacion de Relaciones Metamorficas
+
+Resumen: la aplicacion del testing metamorfico esta inheremente ligado a la uso de relaciones metamorficas. Las mismas son propiedades que capturan una relacion entre dos, o mas, ejecuciones del software. Por ejemplo, en el contexto de programas orientados a objetos, para una implementacion de pilas la relacion metamorfica que dice que realizar pop() despues de realizar un push(Object) dejara a la pila en el estado previo a realizar el push. Por otro lado, para implementacion de funciones matematicas, nos interesan propiedades como sin(x) = -sin(-x), o sum(x,y) = sum(y,x). Estos tipos de relaciones metamoricas mostrados corresponden a dominios distintos, para la primera el dominio son secuencias de metodos equivalentes donde se evalua el estado final del objeto y, opcionalmente, el resultado obtenido del mismo. Mientras que para las otras propiedades se espera evuluar que los resultados de las operaciones sean iguales luego de una pertubacion en sus argumentos.
