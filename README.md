@@ -12,7 +12,7 @@
 
 ## Deteccion de precondiciones para propiedades metamorficas
 
-**Resumen**: en trabajos anteriores se encontro que ciertas propiedades metamorficas eran validas en determinados escenarios, pero en otros no. Lo que se busca es usar un modelo de lenguaje que tome como entrada la propiedades bajo analisis y los escenarios donde se probo la propiedad, y que nos de como salida una formula logica que distinga dicho escenarios. Por ejemplo: la propiedad `pop();push(Object) = \empty_seq` solo es valida si el elemento que se inserta en la pila es el mismo que se quito.
+**Resumen**: en trabajos anteriores se encontro que ciertas propiedades metamorficas eran validas en determinados escenarios, pero en otros no. Lo que se busca es usar un modelo de lenguaje que tome como entrada la propiedades bajo analisis y los escenarios donde se probo la propiedad, y que nos de como salida una formula logica que distinga dicho escenarios. Por ejemplo: la propiedad `pop();push(Object) = \empty_seq` solo es valida si el elemento que se inserta en la pila es el mismo que se quito, es decir `x = pop() -> push(x) = \empty_seq`.
 
 ## Generacion automatica de aserciones
 
