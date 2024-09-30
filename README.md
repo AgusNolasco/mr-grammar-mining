@@ -13,3 +13,15 @@
 ## Deteccion de precondiciones para propiedades metamorficas
 
 **Resumen**: en trabajos anteriores se encontro que ciertas propiedades metamorficas eran validas en determinados escenarios, pero en otros no. Lo que se busca es usar un modelo de lenguaje que tome como entrada la propiedades bajo analisis y los escenarios donde se probo la propiedad, y que nos de como salida una formula logica que distinga dicho escenarios. Por ejemplo: la propiedad `pop();push(Object) = \empty_seq` solo es valida si el elemento que se inserta en la pila es el mismo que se quito.
+
+## Generacion automatica de aserciones
+
+**Resumen**: se plantea realizar procesamiento de lenguaje natural sobre los comentarios de alguna operacion para, dado un input para la operacion, obtener una asercion valida para ese caso. Por ejemplo para:
+```
+/**
+* @return the maximum of two integers
+*/
+public int max(int x, int y):
+  return x > y ? x : y
+```
+y los inputs `x=3` y `y=10`, se espera obtener una asercion como `assertEquals(max(x,y), y)`
