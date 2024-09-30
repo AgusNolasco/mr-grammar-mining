@@ -21,7 +21,8 @@
 /**
 * @return the maximum of two integers
 */
-public int max(int x, int y):
-  return x > y ? x : y
+public int max(int x, int y) {
+  return x > y ? x : y;
+}
 ```
 y los inputs `x=3` y `y=10`, se espera obtener una asercion como `assertEquals(max(x,y), y)`
