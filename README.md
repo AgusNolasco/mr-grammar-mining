@@ -7,3 +7,9 @@
 **Objectivos preeliminares**: en el caso de que no sea posible obtener directamente la gramatica a partir del modelo de lenguaje, se podria opcionalmente, obtener informacion sobre las operaciones de la clase bajo analisis. Esta informacion puede ser los tipos de sus argumentos, el tipo de retorno, si la operacion produce cambios sobre el objeto o si es un funcion pura (sin efectos colaterales). Luego, con esta informacion uno podria crear de forma automatica la gramatica, o en su defecto, proveer a otro modelo con dicha informacion para generar la gramatica.
 
 **Tecnicas a aplicar**: actualmente, la tecnica que considero mas viable es la de *prompt engineering*. La idea es diseñar uno o varios prompts con el objetivo de resolver este problema en varios pasos. Extraccion de informacion relevante sobre las operaciones y generacion de una gramatica de propiedades metamorficas. Otras tecnica que podria utilizarse el fine-tuning sobre algun modelo existente, la idea seria apuntar a una tarea de *text summarization*, enfocando el resumen a obtener caracteristicas sobre las operaciones de una clase, para posteriormente construir la gramatica. El principal problema de esta tecnica es la necesidad de *training data*.
+
+# Otras propuestas
+
+## Deteccion de precondiciones para propiedades metamorficas
+
+**Resumen**: en trabajos anteriores se encontro que ciertas propiedades metamorficas eran validas en determinados escenarios, pero en otros no. Lo que se busca es usar un modelo de lenguaje que tome como entrada la propiedades bajo analisis y los escenarios donde se probo la propiedad, y que nos de como salida una formula logica que distinga dicho escenarios. Por ejemplo: la propiedad `pop();push(Object) = \empty_seq` solo es valida si el elemento que se inserta en la pila es el mismo que se quito.
