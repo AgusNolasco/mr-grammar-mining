@@ -8,6 +8,60 @@
 
 **Tecnicas a aplicar**: actualmente, la tecnica que considero mas viable es la de *prompt engineering*. La idea es diseñar uno o varios prompts con el objetivo de resolver este problema en varios pasos. Extraccion de informacion relevante sobre las operaciones y generacion de una gramatica de propiedades metamorficas. Otras tecnica que podria utilizarse el fine-tuning sobre algun modelo existente, la idea seria apuntar a una tarea de *text summarization*, enfocando el resumen a obtener caracteristicas sobre las operaciones de una clase, para posteriormente construir la gramatica. El principal problema de esta tecnica es la necesidad de *training data*. Otra tecnica, es la utilizacion de few-shot, debido a la poca cantidad de ejemplos con los que se cuenta, para realizar fine-tuning sobre un modelo existente.
 
+Por ejemplo, para la clase:
+
+```
+public class BoundedStack {
+
+	private final static int DEFAULT_SIZE = 10;
+
+	private final Object[] elements = new Object[DEFAULT_SIZE];
+
+	private int index = -1;
+
+	public MyBoundedStack() {
+	}
+
+	public void push(Object object) {
+		if (isFull()) {
+			throw new IllegalStateException();
+		}
+		elements[++index] = object;
+	}
+
+	public Object pop() {
+		if (isEmpty()) {
+			throw new IllegalStateException();
+		}
+		Object ret_val = elements[index];
+		elements[index] = null;
+		index--;
+		return ret_val;
+	}
+	
+	public boolean isFull() {
+		return index == elements.length - 1;
+	}
+	
+	public boolean isEmpty() {
+		return index == -1;
+	}
+}
+```
+
+
+$$
+\begin{align}
+    \texttt{MR} &::= \texttt{OBJ\\_EQ}~|~\texttt{RET\\_EQ} \\
+    \texttt{OBJ\\_EQ} &::=\texttt{mod\\_method\\_seq} =\_{\texttt{obj}} \texttt{mod\\_method\\_seq} \\
+    \texttt{RET\\_EQ} &::=\texttt{mod\\_method\\_seq; pure\\_method} =\_{\texttt{ret}} \texttt{mod\\_method\\_seq; pure\\_method} \\
+    \texttt{mod\\_method\\_seq} &::= \texttt{mod\\_method; mod\\_method\\_seq}~|~\epsilon \\
+    \texttt{mod\\_method} &::= \texttt{push(OBJ)}~|~\texttt{pop()} \\
+    \texttt{pure\\_method} &::=\texttt{isFull()}~|~\texttt{isEmpty()} \\
+    \texttt{OBJ} &::= \texttt{pop()}~|~\texttt{Object}
+\end{align}
+$$
+
 # Otras propuestas
 
 ## Deteccion de precondiciones para propiedades metamorficas
@@ -25,17 +79,5 @@ public int max(int x, int y) {
   return x > y ? x : y;
 }
 ```
-
-$$
-\begin{align}
-    \Code{MR} &::= \Code{OBJ\_EQ}~|~\Code{RET\_EQ} \\
-    \Code{OBJ\_EQ} &::=\Code{mod\_method\_seq} =_{\Code{obj}} \Code{mod\_method\_seq} \\
-    \Code{RET\_EQ} &::=\Code{mod\_method\_seq; pure\_method} =_{\Code{ret}} \Code{mod\_method\_seq; pure\_method} \\
-    \Code{mod\_method\_seq} &::= \Code{mod\_method; mod\_method\_seq}~|~\epsilon \\
-    \Code{mod\_method} &::= \Code{push(OBJ)}~|~\Code{pop()} \\
-    \Code{pure\_method} &::=\Code{isFull()}~|~\Code{isEmpty()} \\
-    \Code{OBJ} &::= \Code{pop()}~|~\Code{Object}
-\end{align}
-$$
 
 y los inputs `x=3` y `y=10`, se espera obtener una asercion como `assertEquals(max(x,y), y)`
