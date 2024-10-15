@@ -19,8 +19,7 @@ public class BoundedStack {
 
 	private int index = -1;
 
-	public MyBoundedStack() {
-	}
+	public BoundedStack() { }
 
 	public void push(Object object) {
 		if (isFull()) {
