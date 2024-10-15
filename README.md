@@ -25,4 +25,17 @@ public int max(int x, int y) {
   return x > y ? x : y;
 }
 ```
+
+$$
+\begin{align*}
+    \Code{MR} &::= \Code{OBJ\_EQ}~|~\Code{RET\_EQ} \\
+    \Code{OBJ\_EQ} &::=\Code{mod\_method\_seq} =_{\Code{obj}} \Code{mod\_method\_seq} \\
+    \Code{RET\_EQ} &::=\Code{mod\_method\_seq; pure\_method} =_{\Code{ret}} \Code{mod\_method\_seq; pure\_method} \\
+    \Code{mod\_method\_seq} &::= \Code{mod\_method; mod\_method\_seq}~|~\epsilon \\
+    \Code{mod\_method} &::= \Code{push(OBJ)}~|~\Code{pop()} \\
+    \Code{pure\_method} &::=\Code{isFull()}~|~\Code{isEmpty()} \\
+    \Code{OBJ} &::= \Code{pop()}~|~\Code{Object}
+\end{align*}
+$$
+
 y los inputs `x=3` y `y=10`, se espera obtener una asercion como `assertEquals(max(x,y), y)`
