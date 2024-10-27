@@ -1,0 +1,9 @@
+MR ::= RET_EQ
+RET_EQ ::= pure_method REL_RET pure_method
+REL_RET ::= '==' | '<' | '<=' | '>' | '>='
+pure_method ::= max(DOUBLE, DOUBLE) | min(DOUBLE, DOUBLE) | maximum(LIST_DOUBLE) | minimum(LIST_DOUBLE) | sum(LIST_DOUBLE) | prod(LIST_DOUBLE) | sqrt(DOUBLE) | sin(DOUBLE) | cos(DOUBLE) | tan(DOUBLE) | pow(DOUBLE, DOUBLE) | abs(DOUBLE) | round(DOUBLE) | toRadians(DOUBLE) | toDegrees(DOUBLE)
+DOUBLE ::= max(DOUBLE, DOUBLE) | min(DOUBLE, DOUBLE) | maximum(LIST_DOUBLE) | minimum(LIST_DOUBLE) | sum(LIST_DOUBLE) | prod(LIST_DOUBLE) | sqrt(DOUBLE) | sin(DOUBLE) | cos(DOUBLE) | tan(DOUBLE) | pow(DOUBLE, DOUBLE) | abs(DOUBLE) | round(DOUBLE) | PI | DOUBLE DOUBLE_BINARY_OP DOUBLE | DOUBLE_UNARY_OP DOUBLE
+LIST_DOUBLE ::= List<Double> | LIST_DOUBLE LIST_DOUBLE_BINARY_OP LIST_DOUBLE | LIST_DOUBLE_UNARY_OP LIST_DOUBLE
+DOUBLE_BINARY_OP ::= '+' | '-' | '*' | '/'
+DOUBLE_UNARY_OP ::= '-'
+LIST_DOUBLE_BINARY_OP ::= '+'
