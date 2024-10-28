@@ -1,0 +1,9 @@
+MR ::= OBJ_EQ | RET_EQ
+OBJ_EQ ::= mod_method_seq REL_OBJ mod_method_seq
+RET_EQ ::= mod_method_seq; pure_method REL_RET mod_method_seq; pure_method
+REL_OBJ ::= '=='
+REL_RET ::= '=='
+mod_method_seq ::= mod_method; mod_method_seq | ϵ
+mod_method ::= addVertex(T) | addEdge(T, T) | removeEdge(T, T) | removeVertex(T) | dfs(T) | bfs(T)
+pure_method ::= getNeighbors(T) | hasEdge(T, T) | toString()
+T ::= getNeighbors(T) | T
