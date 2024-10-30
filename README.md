@@ -75,6 +75,7 @@ Para las primeras semanas se busca hacer algunos experimentos exploratorios para
 
 ### Semana 3-4
 En las siguentes semanas la idea seria utilizar los ejemplos generados y refinados a partir del uso de prompts en ChatGPT para realizar few-shot sobre algun modelo de lenguaje con el objeto de entrenarlo en la tarea de generar gramaticas que capturen las posibles propiedades metamorficas de una clase dada.
+En la carpeta 'experiments' se encuentran distintas clases Java y sus respectivas gramaticas obtenidas a partir del uso de ChatGPT. Para ello, como se menciono anteriormente se utilizo un prompt. Si bien en varios casos complejos ChatGPT no supo darnos una gramatica que cumpliera con los solicitado en el prompt, mediante algunos comandos adicionales se pudo obtener un gramatica mas cercana a lo esperado. Estos seran los ejemplos utilizados para realizar el few-shot.
 
 # Otras propuestas
 
