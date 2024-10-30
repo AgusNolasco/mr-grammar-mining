@@ -73,6 +73,9 @@ Actualmente, la tecnica que se considero más viable es la utilización de *prom
 ### Semana 1-2
 Para las primeras semanas se busca hacer algunos experimentos exploratorios para evaluar la viabilidad del uso de LLMs para la generación de gramáticas que capturen MRs. Para ello utilizaremos ChatGPT con un *prompt* que detalle como debe ser la construcción de la gramática. El prompt contara con instrucciones para distinguir clases *stateful* y *stateless*, de forma que clases *stateful* contaran con MRs que modifiquen el estado concreto de un objeto, mientras que las *stateless* no. También se le proporcionara información de que debe hacer con los parametros de las operaciones. Por ejemplo la operacio `push(Object)` de `BoundedStack` toma un `Object`, el cual se podra obtener de manera aleatoria o mediante otros mecanismos de la clase, como por ejemplo una llamada al metodo `pop()`, el cual devuelve un `Object`. Para alguna clase que implemente funciones aritmeticas, es seguro que la constante $\pi$ estara definida como un atributo, entonces si tenemos `sin(float)`, esperariamos que ese `float` se obtenga de manera aleatoria, o tomando el atributo de la clase $\pi$ quedando `sin`($\pi$), tambien podria obtenerse a traves de una invocación al metodo `cos(float)`. Para tipos como, por ejemplo, `Integer` se espera poder realizar pertubaciones, extendiendo la gramática con operaciones aritmeticas entre `Integers`, y asi con cualquier otro tipo para el cual se conozcan operaciones.
 
+### Semana 3-4
+En las siguentes semanas la idea seria utilizar los ejemplos generados y refinados a partir del uso de prompts en ChatGPT para realizar few-shot sobre algun modelo de lenguaje con el objeto de entrenarlo en la tarea de generar gramaticas que capturen las posibles propiedades metamorficas de una clase dada.
+
 # Otras propuestas
 
 ## Deteccion de precondiciones para propiedades metamorficas
