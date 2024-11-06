@@ -48,8 +48,8 @@ Esperariamos una gramatica con la siguente pinta:
 $$
 \begin{flalign}
     \texttt{MR} &::= \texttt{OBJ\\_EQ}~|~\texttt{RET\\_EQ} \\
-    \texttt{OBJ\\_EQ} &::=\texttt{mod\\_method\\_seq} \texttt{REL\\_OBJ} \texttt{mod\\_method\\_seq} \\
-    \texttt{RET\\_EQ} &::=\texttt{mod\\_method\\_seq; pure\\_method} \texttt{REL\\_RET} \texttt{mod\\_method\\_seq; pure\\_method} \\
+    \texttt{OBJ\\_EQ} &::=\texttt{mod\\_method\\_seq} \texttt{ REL\\_OBJ } \texttt{mod\\_method\\_seq} \\
+    \texttt{RET\\_EQ} &::=\texttt{mod\\_method\\_seq; pure\\_method} \texttt{ REL\\_RET } \texttt{mod\\_method\\_seq; pure\\_method} \\
     \texttt{REL\\_OBJ} &::= \texttt{\`=='}\\
     \texttt{REL\\_RET} &::= \texttt{\`=='}\\
     \texttt{mod\\_method\\_seq} &::= \texttt{mod\\_method; mod\\_method\\_seq}~|~\epsilon \\
